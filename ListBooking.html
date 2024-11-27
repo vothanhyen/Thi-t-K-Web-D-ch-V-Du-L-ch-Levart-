@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListBooking</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="layout.css" />
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- BS Input -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/forms/input-group/">
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <!-- Shortcut icon -->
+    <link rel="shortcut icon" type="image/png" href="./Pictures/AIRPLANE LOGO DESIGN.png" />
+
+    <style>
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        hr {
+            border: 0.3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row pb-5">
+        <div class="col-12" style="z-index: 1000;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-md-block"> <!--Nvbar-->
+                <div class="container px-4 px-lg-5">
+                    <a class="navbar-brand" href="Levarts Home.html"
+                        style="margin-right: 45px; font-size: 28px;">Levarts</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                            <li class="nav-item">
+                                <!-- <a class="nav-link active" href="#!" style="margin-right: 50px;"><b>Trang chủ</b></a> -->
+                            <li class="nav-item"><a class="nav-link" href="Levarts Home.html" style="margin-right: 40px;"><b>Trang
+                                        chủ</b></a></li>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#!" style="margin-right: 40px;"><b>Đặt
+                                        chuyến bay</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="ListBooking.html" style="margin-right: 40px;"><b>Đặt
+                                        khách sạn</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="Book Car.html" style="margin-right: 40px;"><b>Phương
+                                        tiện</b></a></li>
+                            <li class="nav-item"><a class="nav-link" href="Activity.html" style="margin-right: 40px;"><b>Hoạt
+                                        động</b></a></li>
+                        </ul>
+                    </div>
+                    <button onclick="openLoginPopup()" class="btn btn-primary" style="margin-right: 10px;">Đăng
+                        nhập</button> <!-- Nút để mở pop-up đăng nhập -->
+                    <button onclick="openRegisterPopup()" class="btn btn-secondary">Đăng ký</button>
+                    <!-- Nút để mở pop-up đăng ký -->
+                    <!-- Overlay for Login -->
+                    <div id="loginOverlay" class="overlay" onclick="closeLoginPopup()"></div>
+                    <div id="loginPopup" class="popup">
+                        <span class="close-btn" onclick="closeLoginPopup()">&times;</span>
+                        <form>
+                            <h4 class="text-center">Đăng nhập</h4>
+                            <!-- Social Login Buttons -->
+                            <div class="d-flex justify-content-center mb-3">
+                                <!-- <button type="button" class="btn btn-primary mx-1" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></button> -->
+                                <!-- <button type="button" class="btn btn-primary mx-1"><i class="fab fa-twitter"></i></button> -->
+                                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                    <button type="button" class="btn btn-primary mx-1">
+                                        <i class="fab fa-facebook"></i>
+                                    </button>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                                    <button type="button" class="btn btn-primary mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                </a>
+                                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                                    <button type="button" class="btn btn-primary mx-1">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </button>
+                                </a>
+                                <!-- <button type="button" class="btn btn-primary mx-1"><i class="fab fa-linkedin-in"></i></button> -->
+                            </div>
+                            <!-- Login Form -->
+                            <div class="form-outline pb-3">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="Nhập số điện thoại" />
+                            </div>
+                            <div class="form-outline mb-3">
+                                <label for="password">Mật khẩu</label>
+                                <input type="password" id="password" class="form-control" placeholder="Nhập mật khẩu" />
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                            <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Bạn chưa có tài khoản? <a href="#"
+                                    onclick="openRegisterPopup()">Đăng ký</a></p>
+                        </form>
+                    </div>
+
+                    <!-- Overlay for Registration -->
+                    <div id="registerOverlay" class="overlay" onclick="closeRegisterPopup()"></div>
+                    <div id="registerPopup" class="popup">
+                        <span class="close-btn" onclick="closeRegisterPopup()">&times;</span>
+                        <form>
+                            <h4 class="text-center">Đăng Ký</h4>
+                            <!-- Registration Form -->
+                            <div class="form-outline pb-3">
+                                <label for="regName">Họ và tên</label>
+                                <input type="text" id="regName" class="form-control" placeholder="Nhập họ và tên"
+                                    required />
+                            </div>
+                            <div class="form-outline pb-3">
+                                <label for="regEmail">Email</label>
+                                <input type="email" id="regEmail" class="form-control" placeholder="Nhập email"
+                                    required />
+                            </div>
+                            <div class="form-outline pb-3">
+                                <label for="regPhone">Số điện thoại</label>
+                                <input type="tel" id="regPhone" class="form-control" placeholder="Nhập số điện thoại"
+                                    required />
+                            </div>
+                            <div class="form-outline mb-3">
+                                <label for="regPassword">Mật khẩu</label>
+                                <input type="password" id="regPassword" class="form-control" placeholder="Nhập mật khẩu"
+                                    required />
+                            </div>
+                            <div class="form-outline mb-3">
+                                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                                <input type="password" id="confirmPassword" class="form-control"
+                                    placeholder="Xác nhận mật khẩu" required />
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-primary btn-block">Đăng Ký</button>
+                            </div>
+                            <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Bạn đã có tài khoản? <a href="#"
+                                    onclick="openLoginPopup()">Đăng Nhập</a></p>
+                        </form>
+                    </div>
+
+                    <script>
+                        // Open and close Login Popup
+                        function openLoginPopup() {
+                            document.getElementById("loginPopup").style.display = "block";
+                            document.getElementById("loginOverlay").style.display = "block";
+                        }
+                        function closeLoginPopup() {
+                            document.getElementById("loginPopup").style.display = "none";
+                            document.getElementById("loginOverlay").style.display = "none";
+                        }
+
+                        // Open and close Register Popup
+                        function openRegisterPopup() {
+                            document.getElementById("registerPopup").style.display = "block";
+                            document.getElementById("registerOverlay").style.display = "block";
+                        }
+                        function closeRegisterPopup() {
+                            document.getElementById("registerPopup").style.display = "none";
+                            document.getElementById("registerOverlay").style.display = "none";
+                        }
+                    </script>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="border rounded p-3 shadow-sm">
+                    <div class="h4 fw-bold mb-3">Đánh giá</div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault" style="font-weight: normal;">
+                            5 Sao
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked" style="font-weight: normal;">
+                            4 Sao
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked" style="font-weight: normal;">
+                            3 Sao
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked" style="font-weight: normal;">
+                            2 Sao
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked" style="font-weight: normal;">
+                            1 Sao
+                        </label>
+                    </div>
+                    <div class="h4 fw-bold mt-4 mb-3">Điểm đánh giá</div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                        <label class="form-check-label" for="flexCheckDefault2" style="font-weight: normal;">
+                            9+
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
+                        <label class="form-check-label" for="flexCheckChecked2" style="font-weight: normal;">
+                            8+
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked>
+                        <label class="form-check-label" for="flexCheckChecked3" style="font-weight: normal;">
+                            7+
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked>
+                        <label class="form-check-label" for="flexCheckChecked4" style="font-weight: normal;">
+                            6+
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="false">
+                        <!-- Nút Điều Khiển Carousel Bên Ngoài -->
+                        <div class="text-left custom-btn d-flex pb-3 border rounded p-3 shadow-sm pb-3 col-sm-12">
+                            <button type="button" class="btn btn-outline-light text-dark " onclick="setCarouselSlide(0)">
+                                Hồ Chí Minh</button>
+                            <button type="button" class="btn btn-outline-light text-dark" onclick="setCarouselSlide(1)">
+                                Đà Nẵng</button>
+                            <button type="button" class="btn btn-outline-light text-dark" onclick="setCarouselSlide(2)">
+                                Quy Nhơn</button>
+                            <button type="button" class="btn btn-outline-light text-dark" onclick="setCarouselSlide(3)">
+                                Nha Trang</button>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <script
+                            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+                        <script>
+                            function setCarouselSlide(index) {
+                                const carousel = document.querySelector('#carouselExampleIndicators');
+                                const bsCarousel = new bootstrap.Carousel(carousel);
+                                bsCarousel.to(index);
+                            }
+                        </script>
+                        <!-- Nội dung Carousel -->
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="border rounded p-3 shadow-sm">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/dorm.jpg" style="width: 100%; height: 250px;"
+                                                    class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        House Dorm</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: B50 Đ. Bạch Đằng,
+                                                        Phường 2, Tân Bình, Hồ Chí Minh</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm tại Bình Thạnh của Hồ Chí Minh, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                    <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                            phút trước</small></p>
+                                                    <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                    <!-- Thêm thẻ link-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/maison.jpg" style="width: 100%; height: 250px;"
+                                                    class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        La Maison Homestay</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 115/13B Đ. Nguyễn
+                                                        Du, Phường Bến Thành, Quận 1, Hồ Chí Minh</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm tại Bình Thạnh của Hồ Chí Minh, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                    <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                            phút trước</small></p>
+                                                    <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                    <!-- Thêm thẻ link-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/river gate.jpg" style="width: 100%; height: 250px;"
+                                                    class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        RiverGate Residence</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 151 - 155 Đ. Bến
+                                                        Vân Đồn, Phường 6, Quận 4, Hồ Chí Minh</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm tại Bình Thạnh của Hồ Chí Minh, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/vinhome.jpg" style="width: 100%; height: 250px;"
+                                                    class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        Vinpearl Landmark 81, Autograph Collection</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 720A Điện Biên Phủ,
+                                                        Phường 22, Bình Thạnh, Hồ Chí Minh</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm tại Bình Thạnh của Hồ Chí Minh, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                    <!-- Thêm thẻ link-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="border rounded p-3 shadow-sm">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/Carol's homestay.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;">
+                                                        </i> Carol's Homestay
+                                                    </div>
+                                                    <p class="card-text"><i class="fas fa-map-marker-alt"
+                                                            style="color: #Fab700;"></i> Địa chỉ: 45 đường An Mỹ, An
+                                                        Hải Trung, Sơn Trà, Đà Nẵng</p>
+                                                    <span class="card-text"><i class="fas fa-info-circle"
+                                                            style="color: #Fab700;"></i> Nằm
+                                                        ở vị trí trung tâm tại Bình Thạnh của Hồ Chí Minh, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị </span> <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/a liitle hoi an.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        A Little Hoi An Homestay</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 7654/11/5 Trưng Nữ
+                                                        Vương, phường Hòa Thuận Tây, quận Hải Châu, Đà Nẵng</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/Minh house - homestay.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        Minh House</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 104 Tô Hiến Thành,
+                                                        Q. Sơn Trà, Đà Nẵng</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm,chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/my little pig homestay.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        My Little Pig</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 04 An Nhơn 1, An
+                                                        Hải Bắc, Sơn Trà, Đà Nẵng</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="border rounded p-3 shadow-sm">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/tsm quynhon.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;">
+                                                        </i> TMS Quy Nhơn Luxury Homestay
+                                                    </div>
+                                                    <p class="card-text"><i class="fas fa-map-marker-alt"
+                                                            style="color: #Fab700;"></i> Địa chỉ: 28 Nguyễn Huệ, TP Quy
+                                                        Nhơn, TP Quy Nhơn
+                                                    </p>
+                                                    <span class="card-text"><i class="fas fa-info-circle"
+                                                            style="color: #Fab700;"></i> Homestay sang trọng với thiết
+                                                        kế hiện đại, không gian rộng rãi, nằm ngay trung tâm thành phố
+                                                        Quy Nhơn.</span> <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/littie quynhon.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        Little Quy Nhơn Homestay</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 29B Ngô Mây, TP Quy
+                                                        Nhơn</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Một
+                                                        homestay ấm cúng, mang phong cách nhẹ nhàng với vị trí thuận
+                                                        tiện gần các tiện ích địa phương.</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/daviden quynhon'.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        Daviden Homestay Quy Nhơn</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 190 Cần Vương, TP Quy
+                                                        Nhơn</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i>
+                                                        Homestay với không gian gần gũi, thích hợp cho du khách muốn
+                                                        trải nghiệm văn hóa và cuộc sống địa phương.</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/hevan quynhon.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        Haven Vietnam Homestay</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: Bãi Xép, Quy Nhơn</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i>
+                                                        Homestay ven biển với phong cảnh tuyệt đẹp, lý tưởng để nghỉ
+                                                        dưỡng và tận hưởng không khí trong lành của biển.</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="border rounded p-3 shadow-sm">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/Carol's homestay.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;">
+                                                        </i> Carol's Homestay
+                                                    </div>
+                                                    <p class="card-text"><i class="fas fa-map-marker-alt"
+                                                            style="color: #Fab700;"></i> Địa chỉ: 45 đường An Mỹ, An
+                                                        Hải Trung, Sơn Trà, Đà Nẵng</p>
+                                                    <span class="card-text"><i class="fas fa-info-circle"
+                                                            style="color: #Fab700;"></i> Nằm
+                                                        ở vị trí trung tâm tại Bình Thạnh của Hồ Chí Minh, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị </span> <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span> <br>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/a liitle hoi an.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        A Little Hoi An Homestay</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 7654/11/5 Trưng Nữ
+                                                        Vương, phường Hòa Thuận Tây, quận Hải Châu, Đà Nẵng</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/Minh house - homestay.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        Minh House</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 104 Tô Hiến Thành,
+                                                        Q. Sơn Trà, Đà Nẵng</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm,chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4">
+                                                <img src="./Pictures/my little pig homestay.jpg"
+                                                    style="width: 100%; height: 250px;" class="img-fluid rounded-start"
+                                                    alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <div class="h4"><i class="fas fa-hotel" style="color: #fab700;"></i>
+                                                        My Little Pig</div>
+                                                    <p class="card-text"> <i class="fas fa-map-marker-alt"
+                                                            style="color: #FFD43B;"></i> Địa chỉ: 04 An Nhơn 1, An
+                                                        Hải Bắc, Sơn Trà, Đà Nẵng</p>
+                                                    <span><i class="fas fa-info-circle" style="color: #FFD43B;"></i> Nằm
+                                                        ở vị trí trung tâm, chỗ nghỉ này
+                                                        đặt quý khách ở gần
+                                                        các điểm thu hút và tùy chọn ăn uống thú vị</span>
+                                                    <br>
+                                                    <span>Đánh giá: <i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i><i class="fas fa-star"
+                                                            style="color: #FFD43B;"></i> </span>
+                                                            <p class="card-text"><small class="text-muted">Cập nhật lần cuối 3
+                                                                phút trước</small></p>
+                                                        <a href="Confirm-Booking.html" class="btn btn-primary">Đặt phòng</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="footer py-5">
+            <div class="row py-3 bg-light">
+                <div class="col-3">
+                    <ul>
+                        <div class="h5">Trợ giúp</div>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Chính sách Bảo mật</a></li>
+                        <li><a href="#">Chính sách về cookie</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Quản lý thiết lập cookie</a></li>
+                        <li><a href="#">Đạo luật Dịch vụ số (EU)</a></li>
+                        <li><a href="#">Nguyên tắc và báo cáo nội dung</a></li>
+                        <li><a href="#">Modern Slavery Statement</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <ul>
+                        <div class="h5">Công ty</div>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Báo chí</a></li>
+                        <li><a href="#">Nhật ký mạng</a></li>
+                        <li><a href="#">PointsMAX</a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <ul>
+                        <div class="h5">Điểm du lịch</div>
+                        <li><a href="#">Quốc gia</a></li>
+                        <li><a href="#">Mọi chặng bay</a></li>
+                    </ul>
+                </div>
+                <div class="col-3 ">
+                    <ul>
+                        <div class="h5">Đối tác của chúng tôi</div>
+                        <li><a href="#">Cổng thông tin đối tác YCS</a></li>
+                        <li><a href="#">Partner Hub</a></li>
+                        <li><a href="#">Quảng cáo trên Agoda</a></li>
+                        <li><a href="#">Đối tác liên kết</a></li>
+                        <li><a href="#">Tư liệu API Agoda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
